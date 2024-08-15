@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import {FormsModule} from '@angular/forms';
 
 
@@ -8,7 +8,9 @@ import {FormsModule} from '@angular/forms';
   standalone: true,
   imports: [
     RouterOutlet,
-    FormsModule
+    FormsModule,
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

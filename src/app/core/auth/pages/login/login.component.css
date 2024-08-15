@@ -1,0 +1,4 @@
+.custem-color{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(114,9,121,1) 0%, rgba(197,4,190,1) 29%, rgba(255,0,238,1) 100%);
+}
