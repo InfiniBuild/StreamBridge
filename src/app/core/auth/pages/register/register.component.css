@@ -1,0 +1,11 @@
+.custem-color{
+    background: hsla(176, 93%, 48%, 1);
+
+    background: linear-gradient(180deg, hsla(176, 93%, 48%, 1) 0%, hsla(43, 84%, 68%, 1) 100%);
+    
+    background: -moz-linear-gradient(180deg, hsla(176, 93%, 48%, 1) 0%, hsla(43, 84%, 68%, 1) 100%);
+    
+    background: -webkit-linear-gradient(180deg, hsla(176, 93%, 48%, 1) 0%, hsla(43, 84%, 68%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#09EBDC", endColorstr="#F2CB68", GradientType=1 );
+}
