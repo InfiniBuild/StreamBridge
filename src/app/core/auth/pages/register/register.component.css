@@ -1,4 +1,11 @@
 .custem-color{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(114,9,121,1) 0%, rgba(197,4,190,1) 29%, rgba(255,0,238,1) 100%);
+    background: hsla(176, 93%, 48%, 1);
+
+    background: linear-gradient(180deg, hsla(176, 93%, 48%, 1) 0%, hsla(43, 84%, 68%, 1) 100%);
+    
+    background: -moz-linear-gradient(180deg, hsla(176, 93%, 48%, 1) 0%, hsla(43, 84%, 68%, 1) 100%);
+    
+    background: -webkit-linear-gradient(180deg, hsla(176, 93%, 48%, 1) 0%, hsla(43, 84%, 68%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#09EBDC", endColorstr="#F2CB68", GradientType=1 );
 }
