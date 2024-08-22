@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { NgOtpInputModule } from  'ng-otp-input';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-otp',
@@ -8,10 +9,18 @@ import { NgOtpInputModule } from  'ng-otp-input';
   templateUrl: './otp.component.html',
   styleUrl: './otp.component.css'
 })
-export class OtpComponent  {
+export class OtpComponent  implements OnInit{
 
-  enteredOtp!:string
-  userId:string=''
+  constructor (private authService: AuthService){}
+  
+    enteredOtp! : string
+    userId : string=''
+    email: string = ''
+
+  ngOnInit() {
+    this.userId = this.authService.id
+    this.email = this.authService.email
+  }
 
   onOtpChange(data:any){
     this.enteredOtp=data      
