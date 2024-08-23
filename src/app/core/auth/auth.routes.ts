@@ -9,5 +9,5 @@ export const authRoutes: Routes = [
     {path:'register',component:RegisterComponent},
     {path:'login',component:LoginComponent},
     {path:'otp',component:OtpComponent},
-    {path:'forgetPassword',component:ForPassComponentComponent}
+    {path:'forgotPassword',component:ForPassComponentComponent}
 ];
