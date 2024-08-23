@@ -12,6 +12,7 @@
                 <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="{length:4,allowNumbersOnly:true}" ></ng-otp-input>
             </div>
             </form>
+
         <p class="w-full bg-[] text-[13px] text-center mt-2">Don't you recieve the otp? 
             @if(isButtonEnabled){<span class="text-[blue] cursor-pointer" (click)="handleClick()">Resent otp</span>}
             @if(!isButtonEnabled){<span class="text-[red]">{{ countdown }} seconds</span>}
