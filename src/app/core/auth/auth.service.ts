@@ -38,11 +38,36 @@ export class AuthService {
 
     return this.http.post(signupResendOtpApi,{id:this.id})
   }
-
   
   login(data: any):Observable<any>{
     const loginApi=`${this.api}/client/login`
 
     return this.http.post(loginApi,data)
+  }
+  
+  forgotPassword(data:string):Observable<any>{
+    const forgotPasswordApi=`${this.api}/client/forgotPassword`
+    
+    return this.http.post(forgotPasswordApi,{email:data})
+  }
+
+  
+  forgotOtpVerification(data:any):Observable<any>{
+    const forgotOtpVerificationApi=`${this.api}/client/forgotOtpVerification`
+    
+    return this.http.post(forgotOtpVerificationApi,data)
+  }
+  
+  forgotResendOtp():Observable<any>{
+    const forgotResendOtpApi=`${this.api}/client/forgotResendOtp`
+
+    return this.http.post(forgotResendOtpApi,{id:this.id})
+  }
+
+  
+  changePassword(data:string):Observable<any>{
+    const changePasswordApi=`${this.api}/client/changePassword`
+
+    return this.http.post(changePasswordApi,{password:data,id:this.id})
   }
 }
