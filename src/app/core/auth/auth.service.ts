@@ -8,11 +8,18 @@ import { environment } from '../../../environment/environment';
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    if (typeof window !== 'undefined') {
+      this.token = localStorage.getItem('token') || '';
+      this.fullName = localStorage.getItem('fullName') || '';
+    }
+  }
 
   api = environment.baseUrl
   id=''
   email=''
+  token=''
+  fullName=''
 
   clientSignup(data:any):Observable<any>{
     const signupApi=`${this.api}/client/signup`
@@ -30,5 +37,12 @@ export class AuthService {
     const signupResendOtpApi=`${this.api}/client/signupResendOtp`
 
     return this.http.post(signupResendOtpApi,{id:this.id})
+  }
+
+  
+  login(data: any):Observable<any>{
+    const loginApi=`${this.api}/client/login`
+
+    return this.http.post(loginApi,data)
   }
 }
