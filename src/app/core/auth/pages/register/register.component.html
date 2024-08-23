@@ -22,10 +22,10 @@
 
         <div class="w-full lg:w-[90%] flex flex-col gap-1 mx-auto lg:ml-[10%] mt-4">
 
-          <mat-form-field class="w-full lg:w-5/6">
-            <mat-label>Full Name</mat-label>
-            <input type="text" matInput placeholder="" value="" formControlName="name">
-            <mat-error *ngIf="registerForm.get('name')?.hasError('required')">
+          <mat-form-field class="w-full md:w-5/6">
+            <mat-label>Full Name </mat-label>
+            <input type="text" matInput placeholder="" value="" formControlName="fullName">
+            <mat-error *ngIf="registerForm.get('fullName')?.hasError('required')">
               Full Name is required
             </mat-error>
           </mat-form-field>
@@ -57,8 +57,12 @@
 
         <button type="submit" class="w-full lg:w-[75%] min-h-10 mx-auto block lg:ml-[10%] mt-1 bg-gradient-to-r from-blue-200 via-purple-300 to-purple-500 text-white font-bold rounded-md transition duration-300 ease-in-out hover:-translate-y-1" [disabled]="!registerForm.valid">Register</button>
       </form>
-      <p class="text-center relative top-2 text-red-600">When error occur!</p>
-      <p class="text-blue-600 text-center mt-6 hover:scale-110 transition duration-300 ease-in-out">If you have an account? <span class="font-bold cursor-pointer" routerLink="/auth/login">Login</span></p>
+      
+      @if(backendError){
+        <p class="text-center relative top-5 text-red-600"> {{backendError}}</p>
+      }
+      <p class="text-blue-600 relative text-center top-6 hover:scale-110 transition duration-300 ease-in-out">If you  have an account ?   <span class="font-bold cursor-pointer" routerLink="/auth/login" >Login</span> </p>
+
     </div>
   </div>
 </div>

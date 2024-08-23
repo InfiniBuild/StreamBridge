@@ -6,6 +6,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../auth.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -22,13 +24,14 @@ import { RouterLink } from '@angular/router';
   styleUrl: './register.component.css',
 })
 export class RegisterComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private route: Router) {}
 
   registerForm!: FormGroup;
+  backendError:string = ''
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
+      fullName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: [
         '',
@@ -44,7 +47,24 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if(this.registerForm.valid){
-      console.log('this is data:',this.registerForm.value);
+      this.authService.clientSignup(this.registerForm.value).subscribe(
+        (response)=>{
+            this.authService.id=response.clientId
+            this.authService.email=response.email
+            this.route.navigate(['/auth/otp'])
+        },
+        (error:any)=>{
+            if(error.status==400){
+                this.backendError=error.error
+                setTimeout(() => {
+                    this.backendError=''
+                }, 3000);
+            }
+            else{
+                console.log(error)
+            }
+        }
+    )
       
     }
   }
